@@ -1,0 +1,1 @@
+sbatch slurm-CUDA.sh
