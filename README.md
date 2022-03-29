@@ -63,7 +63,7 @@ The results are impressive for the effort and performance on the supercomputacio
 
 #SBATCH --job-name=MPI                         # Job name
 #SBATCH --nodes=2                              # Run all processes on 2 nodes  
-#SBATCH --partition=standard                   # Partition OGBON
+#SBATCH --partition=cpulongb                   # Partition OGBON
 #SBATCH --output=out_%j.log                    # Standard output and error log
 #SBATCH --ntasks-per-node=1                    # 1 job per node
 #SBATCH --account=cenpes-lde                   # Account of the group 
@@ -97,12 +97,20 @@ Click your profile photo in GitHub > Settings  > SSH and GPG keys > Add SSH key
 
 ## It is possible use the jupyter lab on Ogbon?
 
-### 1) ssh -p 5001 -CXY -o ServerAliveInterval=40 murilo@ogbon-login8.fieb.org.br -L 8559:\*:8559
+### 1) Connect set the jupyter port
 
-### 2) module load anaconda3/2020.07
+> ~$ ssh -p 5001 -CXY -o ServerAliveInterval=40 murilo@ogbon-login8.fieb.org.br -L 8559:\*:8559
 
-### 3) jupyter lab --port=8559
 
-Cut and past the link in the browser
+### 2) Initialize the Anaconda API 
+
+> ~$ module load anaconda3/2020.07
+
+
+### 3) After start the jupyter lab, cut and past the link in the browser
+
+> ~$ jupyter lab --port=8559
+
+
 
 ----
