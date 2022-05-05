@@ -9,8 +9,34 @@ The results are impressive for the effort and performance on the supercomputacio
 
 > ~$ ssh -p 5001 -CXY -o ServerAliveInterval=40 murilo@ogbon-login8.fieb.org.br
 
-Please refer to the section [Simplifying SSH](Simplifying SSH) for an way to reduce the complexity of this
+Please refer to create a alias for connect with OGBON, see  [Simplifying SSH] for an way to reduce the complexity of this
 command.
+
+### Simplifying SSH
+
+By following the steps below you will be able to do just
+> ~$ ssh ogbon
+and successfully connect to the server.
+
+Create or edit a ~/.ssh/config file
+
+> ~$ mkdir -p ~/.ssh
+
+then create or edit the ~/.ssh/config file, appending the following content:
+```
+Host ogbon
+    HostName ogbon-login8.fieb.org.br
+    User murilo
+    PreferredAuthentications publickey
+    Compression yes
+    ServerAliveInterval 40
+    ForwardX11 yes
+    Port 5001
+    IdentityFile ~/.ssh/id_rsa
+```
+where you should change the name of the User option from murilo to your username. Furthermore, check if your ssh key is really id_rsa, otherwise change it to the correct one.
+
+> ~$ ssh ogbon
 
 ----
 ## How to  get information about the partitions?
@@ -131,30 +157,16 @@ Click your profile photo in GitHub > Settings  > SSH and GPG keys > Add SSH key
 
 ----
 
-## Simplifying SSH
+## How to use the Docker Containner on Ogbon?
 
-By following the steps below you will be able to do just
-> ~$ ssh ogbon
-and successfully connect to the server.
+### Search the package in docker page:
 
-### Create or edit a ~/.ssh/config file
+> ~$ https://hub.docker.com/search?q=speglich
 
-> ~$ mkdir -p ~/.ssh
+### Download the package with singularity pull:
 
-then create or edit the ~/.ssh/config file, appending the following content:
-```
-Host ogbon
-    HostName ogbon-login8.fieb.org.br
-    User murilo
-    PreferredAuthentications publickey
-    Compression yes
-    ServerAliveInterval 40
-    ForwardX11 yes
-    Port 5001
-    IdentityFile ~/.ssh/id_rsa
-```
-where you should change the name of the User option from murilo to your username. Furthermore, check if your ssh key is really id_rsa, otherwise change it to the correct one.
+> ~$ singularity pull docker://speglich/cimatec-base
 
-### Connect to server
+### Execute the package with singularity exec:
 
-> ~$ ssh ogbon
+> ~$ singularity exec --nv docker://speglich/cimatec-base bash
