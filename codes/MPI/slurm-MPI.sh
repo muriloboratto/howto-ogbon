@@ -5,8 +5,6 @@
 #SBATCH --partition=cpulongb                   # Partition OGBON
 #SBATCH --output=out_%j.log                    # Standard output and error log
 #SBATCH --ntasks-per-node=1                    # 1 job per node
-#SBATCH --account=cenpesp-lde                  # Account of the group 
-
-module load openmpi/4.0.2
+#SBATCH --account=cenpes-lde                   # Account of the group 
 
 mpirun -np 2 ./ping-pong-MPI
