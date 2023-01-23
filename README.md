@@ -139,7 +139,7 @@ Click your profile photo in GitHub > Settings  > SSH and GPG keys > Add SSH key
 
 ----
 
-## It is possible use the jupyter lab on Ogbon?
+## It is possible use the jupyter lab on Ogbon in the login node?
 
 ### 1) Connect set the jupyter port
 
@@ -154,6 +154,44 @@ Click your profile photo in GitHub > Settings  > SSH and GPG keys > Add SSH key
 ### 3) After start the jupyter lab, cut and past the link in the browser
 
 > ~$ jupyter lab --port=8559
+
+----
+
+## It is possible use the jupyter lab on Ogbon in the processing node?
+
+### 1) Connect set the jupyter port
+
+> ~$ ssh -p 5001 -CXY -o ServerAliveInterval=40 murilo@ogbon-login8.fieb.org.br -L 8559:\*:8559
+
+
+### 2) How to alloc a node on Ogbon?
+
+To allocate run:
+> ~$ salloc -p gpulongb -N 1 -A cenpes-lde
+
+The expected output is something like:
+```
+salloc: Pending job allocation 528705
+salloc: job 528705 queued and waiting for resources
+salloc: job 528705 has been allocated resources
+salloc: Granted job allocation 528705
+salloc: Waiting for resource configuration
+salloc: Nodes c003 are ready for job
+```
+With the node c003 (only an example) properly allocated, ssh into it with the following command:
+> ~$ ssh c003 -L 8559:\*:8559
+
+
+
+### 3) On the processing node initialize the Anaconda API
+
+> ~$ module load anaconda3/2020.07
+
+
+### 4) After start the jupyter lab, cut and past the link in the browser
+
+> ~$ jupyter lab --port=8559
+
 
 ----
 

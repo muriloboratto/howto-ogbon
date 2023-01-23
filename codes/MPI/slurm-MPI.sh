@@ -7,4 +7,6 @@
 #SBATCH --ntasks-per-node=1                    # 1 job per node
 #SBATCH --account=cenpes-lde                   # Account of the group 
 
+module load openmpi/4.1.1-cuda-11.6-ofed-5.4
+
 mpirun -np 2 ./ping-pong-MPI
