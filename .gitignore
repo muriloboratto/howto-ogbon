@@ -3,8 +3,10 @@
 # Ignore Logs
 logs
 *.log
+*.ipynb_checkpoints/
 
 # Ignore the build directory
+.ipynb_checkpoints/
 
 # The file containing environment variables 
 .env
