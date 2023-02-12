@@ -208,3 +208,35 @@ With the node c003 (only an example) properly allocated, ssh into it with the fo
 ### Execute the package with singularity exec:
 
 > ~$ singularity exec --nv docker://speglich/cimatec-base bash
+
+----
+
+## How to use NICE DCV?
+
+### Open the Remote Desktop
+
+Then, read the instructions that follow in the notebook, and connect with NICE DCV on OGBON:
+
+#### 1) Connect in login8 on OGBON
+
+> ~$ ssh -p 5001 user@ogbon-login8.fieb.org.br 
+
+#### 2) Create the Alias
+
+> ~$ alias dcvCreate="dcv create-session profiling"
+
+> ~$ alias dcvList="dcv list-sessions"
+
+> ~$ alias dcvClose="dcv close-session profiling"
+
+#### 3) Create Session in NICE DCV
+
+> ~$ dcvCreate
+
+#### 4) Open the browser and connect in the adress associating the alias session
+
+    https://ogbon-cgpu4.fieb.org.br:8443#profiling
+
+#### 5) Insert the user and password
+After clicking the _Connect_ button you will be asked for a password, which is registered in the NOC/CS2I.
+
