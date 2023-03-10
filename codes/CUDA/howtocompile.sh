@@ -1,3 +1,3 @@
-module load cuda/10.1
+module load cuda/11.6 
 
 nvcc mm.cu -o mm
