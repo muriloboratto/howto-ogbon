@@ -120,7 +120,7 @@ To free up the allocated resources run:
 
 ### localhost --> ogbon
 
-> ~$ scp -P 5001 -r /Users/muriloboratto/Documents/github/howto-ogun/ murilo@ogbon-login8.fieb.org.br:/home/murilo/
+> ~$ scp -P 5001 -r /Users/muriloboratto/Documents/github/howto-ogbon/ murilo@ogbon-login8.fieb.org.br:/home/murilo/
 
 ### ogbon  --> localhost
 
@@ -129,7 +129,7 @@ To free up the allocated resources run:
 
 ----
 
-## It is possible make a git clone on Ogbon?
+## `It is possible make a git clone on Ogbon?`
 
 ### 1) Only in front-end login8
 
@@ -139,7 +139,7 @@ Click your profile photo in GitHub > Settings  > SSH and GPG keys > Add SSH key
 
 ----
 
-## It is possible use the jupyter lab on Ogbon in the login node?
+## `It is possible use the jupyter lab on Ogbon in the login node?`
 
 ### 1) Connect set the jupyter port
 
@@ -157,7 +157,7 @@ Click your profile photo in GitHub > Settings  > SSH and GPG keys > Add SSH key
 
 ----
 
-## It is possible use the jupyter lab on Ogbon in the processing node?
+## `It is possible use the jupyter lab on Ogbon in the processing node?`
 
 ### 1) Connect set the jupyter port
 
@@ -180,7 +180,6 @@ salloc: Nodes c003 are ready for job
 ```
 With the node c003 (only an example) properly allocated, ssh into it with the following command:
 > ~$ ssh c003 -L 8559:\*:8559
-
 
 
 ### 3) On the processing node initialize the Anaconda API
