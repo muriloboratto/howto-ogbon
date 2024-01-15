@@ -259,7 +259,7 @@ base                  *  /opt/share/anaconda3/2020.07
 llvm12                   /opt/share/anaconda3/2020.07/envs/llvm12
 ```
 
-### If exist the env just call pytorch with the command activate
+### If exist the env just call Pytorch with the command activate
 
 > ~$ source activate pytorch-2.x
 
@@ -301,3 +301,37 @@ dependencies:
 > ~$ source deactivate
 
 ----
+
+## `How to use TensorFlow with Jupyter Notebook on Ogbon using singularity image?`
+
+### Singularity/Apptainer Image (From Docker Image)
+
+```Bash
+[murilo@login8 ~]$ ls /public/singularity/tensorflow-2.14-gpu-jupyter.sif
+```
+### Submit script using SLURM
+
+```Bash
+[murilo@login8 ~]$ sbatch /public/singularity/slurm-jupyter-notebook.sh
+```
+
+#### Atention 1: Update the PATHS in the file `slurm-jupyter-notebook.sh`;
+
+#### Atention 2: The SLURM generate a file `slurm-notebook-*.log`, with all informations; 
+
+#### Atention 3: Open a new terminal, and copy the direction select by the SLURM: 
+
+```Bash
+    ssh -L 9807:c000:8888 murilo@ogbon-cgpu4.senaicimatec.com.br -p 5001
+```
+
+#### Atention 4: In the below of the file `slurm-notebook-*.log`, copy the jupyter's weblink, and change the port 8888, for the port select by SLURM, in this case 9807:
+
+```Bash
+ http://127.0.0.1:9807/tree?token=f79af719ee03701f0a0cf2f02cc72e8a895800487d595559
+```
+
+----
+
+
+
