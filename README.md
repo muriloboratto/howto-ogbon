@@ -7,7 +7,7 @@ The results are impressive for the effort and performance on the supercomputacio
 ----
 ## How to connect with ssh?
 
-> ~$ ssh -p 5001 -CXY -o ServerAliveInterval=40 murilo@ogbon-login8.fieb.org.br
+> ~$ ssh -p 5001 murilo@ogbon-login8.fieb.org.br
 
 Please refer to create a alias for connect with OGBON, see  [Simplifying SSH] for an way to reduce the complexity of this
 command.
@@ -240,3 +240,56 @@ Then, read the instructions that follow in the notebook, and connect with NICE D
 #### 5) Insert the user and password
 After clicking the _Connect_ button you will be asked for a password, which is registered in the NOC/CS2I.
 
+----
+
+## How to use pytorch on OGBON?
+
+### Verify all envs in the platform
+
+> ~$ module load anaconda3/2023.07
+> ~$ conda info --envs
+
+```Bash
+[murilo@login8 ~]$ conda info --envs
+# conda environments:
+#
+pytorch-2.x              /home/murilo/.conda/envs/pytorch-2.x
+tensorflow-2.x           /home/murilo/.conda/envs/tensorflow-2.x
+base                  *  /opt/share/anaconda3/2020.07
+llvm12                   /opt/share/anaconda3/2020.07/envs/llvm12
+```
+
+### If exist the env call pytorch just active
+
+> ~$ source activate pytorch-2.x
+
+### else
+
+1) Create a reference file call conda-pytorch-env.yaml:
+
+```Bash
+name: pytorch-2.x
+channels:
+  - pytorch
+  - conda-forge
+  - nvidia
+dependencies:
+  - python=3.11
+  # Libraries
+  - pytorch-cuda=11.8
+  - pytorch>=2.0.1
+  - numpy
+  - pandas
+  # Tools
+  - ipykernel
+  - jupyterlab
+  - pip
+```
+
+2) Create the env:
+
+> ~$ conda env create --name pytorch-2.x --file conda-pytorch-env.yaml
+
+### and the end, deactivate the env
+
+> ~$ source deactivate
