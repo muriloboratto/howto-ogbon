@@ -246,6 +246,7 @@ After clicking the _Connect_ button you will be asked for a password, which is r
 ### First you have to verify all installed envs in the platform
 
 > ~$ module load anaconda3/2023.07
+
 > ~$ conda info --envs
 
 ```Bash
@@ -264,7 +265,8 @@ llvm12                   /opt/share/anaconda3/2020.07/envs/llvm12
 
 ### else
 
-1) Create a reference file call conda-pytorch-env.yaml:
+1) Create a reference file called `conda-pytorch-env.yaml`:
+
 
 ```Bash
 name: pytorch-2.x
