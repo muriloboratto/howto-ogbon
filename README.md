@@ -1,11 +1,11 @@
-# Howto Ogbon Environment
+# How to Ogbon Environment
 
 The aim of this recipes is learn how to use the execution queue on Ogbon Environment.
 A practical example to see how it can be used and to see a real example of submit jobs.
 The results are impressive for the effort and performance on the supercomputacional environment.
 
 ----
-## How to connect with ssh?
+## `How to connect with ssh?`
 
 > ~$ ssh -p 5001 murilo@ogbon-login8.fieb.org.br
 
@@ -39,19 +39,19 @@ where you should change the name of the User option from murilo to your username
 > ~$ ssh ogbon
 
 ----
-## How to  get information about the partitions?
+## `How to  get information about the partitions?`
 
 > ~$ sinfo
 
 ----
 
-## How to  get information about the SLURM queue?
+## `How to  get information about the SLURM queue?`
 
 > ~$ squeue
 
 ----
 
-## How to visualize and start the modules/APIs?
+## `How to visualize and start the modules/APIs?`
 
 > ~$ module avail
 
@@ -63,7 +63,7 @@ where you should change the name of the User option from murilo to your username
 
 ----
 
- ## How to know my personal account (group of execution) on Ogbon?
+ ## `How to know my personal account (group of execution) on Ogbon?`
 
 > ~$ groups
 > ~$ murilo nec projetos cenpes-lde
@@ -71,7 +71,7 @@ where you should change the name of the User option from murilo to your username
 
 ----
 
- ## How to alloc/disalloc a node on Ogbon?
+ ## `How to alloc/disalloc a node on Ogbon?`
 
 To allocate run:
 > ~$ salloc -p cpulongb -N 1 -A cenpes-lde
@@ -95,7 +95,7 @@ To free up the allocated resources run:
 
 ----
 
-## How to  submit a job in SLURM??
+## `How to  submit a job in SLURM?`
 
 > ~$ sbatch script-slurm.sh
 
@@ -116,7 +116,7 @@ To free up the allocated resources run:
 
 ----
 
-## How to make scp?
+## `How to make scp on Ogbon?`
 
 ### localhost --> ogbon
 
@@ -195,7 +195,7 @@ With the node c003 (only an example) properly allocated, ssh into it with the fo
 
 ----
 
-## How to use the Docker Containner on Ogbon?
+## `How to use the Docker Containner on Ogbon?`
 
 ### Search the package in docker page:
 
@@ -211,7 +211,7 @@ With the node c003 (only an example) properly allocated, ssh into it with the fo
 
 ----
 
-## How to use NICE DCV?
+## `How to use NICE DCV?`
 
 ### Open the Remote Desktop
 
@@ -242,9 +242,9 @@ After clicking the _Connect_ button you will be asked for a password, which is r
 
 ----
 
-## How to use pytorch on OGBON?
+## `How to use pytorch on Ogbon using environments?`
 
-### Verify all envs in the platform
+### First you have to verify all installed envs in the platform
 
 > ~$ module load anaconda3/2023.07
 > ~$ conda info --envs
@@ -259,7 +259,7 @@ base                  *  /opt/share/anaconda3/2020.07
 llvm12                   /opt/share/anaconda3/2020.07/envs/llvm12
 ```
 
-### If exist the env call pytorch just active
+### If exist the env just call pytorch with the command activate
 
 > ~$ source activate pytorch-2.x
 
@@ -290,6 +290,13 @@ dependencies:
 
 > ~$ conda env create --name pytorch-2.x --file conda-pytorch-env.yaml
 
+3) And activate:
+
+> ~$ source activate pytorch-2.x
+
+
 ### and the end, deactivate the env
 
 > ~$ source deactivate
+
+----
