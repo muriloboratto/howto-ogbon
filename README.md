@@ -9,7 +9,7 @@ The results are impressive for the effort and performance on the supercomputacio
 
 > ~$ ssh -p 5001 murilo@ogbon-login8.fieb.org.br
 
-Please refer to create a alias for connect with OGBON, see  [Simplifying SSH] for an way to reduce the complexity of this
+Please refer to create a alias for connect with OGBON, see [Simplifying SSH] for an way to reduce the complexity of this
 command.
 
 ### Simplifying SSH
@@ -66,6 +66,7 @@ where you should change the name of the User option from murilo to your username
  ## `How to know my personal account (group of execution) on Ogbon?`
 
 > ~$ groups
+
 > ~$ murilo nec projetos cenpes-lde
 
 
